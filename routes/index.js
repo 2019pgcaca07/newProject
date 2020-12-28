@@ -6,6 +6,9 @@ console.log('routes loaded');
 
 router.get('/',homeController.home);
 router.get('/practice',homeController.practice);
+router.use('/users',require('./users'));
+router.use('/posts',require('./posts')); 
+
 
 
 
