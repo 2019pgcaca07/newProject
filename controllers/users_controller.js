@@ -22,7 +22,7 @@ module.exports.signIn = function(req,res){
 //get up the sign up data
 module.exports.create = function(req, res){
     console.log(req.body)
-//    ho gya where was mistake
+
 
     if (req.body.password != req.body.confirm_password){
         return res.redirect('back');
@@ -30,8 +30,6 @@ module.exports.create = function(req, res){
 
     User.findOne({email: req.body.email}, function(err, user){
         if(err){console.log('error in finding user in signing up'); return}
-// wait user nhi bn rha h 
- console.log("ujdjk");
 
         if (!user){
             User.create(req.body, function(err, user){
@@ -46,3 +44,32 @@ module.exports.create = function(req, res){
     });
 }
 
+// sign in and create a session for the user
+module.exports.createSession = function(req, res){
+
+    // steps to authenticate
+    // find the user
+    User.findOne({email: req.body.email}, function(err, user){
+        if(err){console.log('error in finding user in signing in'); return}
+        // handle user found
+        if (user){
+
+            // handle password which doesn't match
+            if (user.password != req.body.password){
+                return res.redirect('back');
+            }
+
+            // handle session creation
+            res.cookie('user_id', user.id);
+            return res.redirect('/users/profile');
+
+        }else{
+            // handle user not found
+
+            return res.redirect('back');
+        }
+
+
+    });
+    
+}
