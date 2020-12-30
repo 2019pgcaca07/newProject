@@ -5,6 +5,8 @@ const userController = require('../controllers/users_controller');
 
 router.get('/profile',userController.profile);
 router.get('/contact',userController.contact);
+router.get('/sign-up',userController.signUp);
+router.get('/sign-in',userController.signIn);
 
 
 
