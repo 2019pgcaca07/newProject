@@ -1,13 +1,27 @@
 const { response } = require('express');
 const User = require('../models/user');
+
+
+
+
 module.exports.profile = function(req,res){
-    return res.render('user_profile',{
-        title:"profile"
-    })
+
+    User.findById(req.params.id, function(err,user){
+              
+        return res.render('user_profile',{
+            title:"profile",
+            profile_user: user
+        }); 
+    });
+    
 }
+
+
 module.exports.contact = function(req,res){
     return res.end('<h1>user contact </h1>');
 }
+
+
 //render the signup page
 module.exports.signUp = function(req,res){
      
@@ -21,6 +35,8 @@ module.exports.signUp = function(req,res){
         title:"Codiel|Sign Up"
     });
 }
+
+
 //render the signin page
 module.exports.signIn = function(req,res){
 
@@ -34,6 +50,8 @@ module.exports.signIn = function(req,res){
         title:"Codiel|Sign In"
     });
 }
+
+
 //get up the sign up data
 module.exports.create = function(req, res){
     console.log(req.body)
@@ -60,10 +78,12 @@ module.exports.create = function(req, res){
     });
 }
 
+
 // sign in and create a session for the user
 module.exports.createSession = function(req,res){
     return res.redirect('/');
 }
+
 
 
 module.exports.destroySession = function(req,res){
