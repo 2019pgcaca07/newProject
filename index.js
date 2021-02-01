@@ -18,6 +18,7 @@ const sassMiddleware = require('node-sass-middleware');
 
 
 
+
 app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
@@ -74,6 +75,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+
+
 
 //use express router
 app.use('/',require('./routes'));
