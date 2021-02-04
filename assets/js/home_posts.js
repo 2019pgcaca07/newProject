@@ -76,6 +76,48 @@
     }
 
 
+    // method to submit the form data for new comment using AJAX
+    let createComment = function(){
+        let newCommentForm = $('#new-comment-form');
+
+        newCommentForm.submit(function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: 'post',
+                url: '/comments/create',
+                data: newCommentForm.serialize(),
+                success: function(data){
+                    let newComment = newCommentDom(data.data.comment);
+                    $('#post-comments-list>ul').prepend(newComment);
+                    deleteComment($(' .delete-comment-button', newComment));
+                }, error: function(error){
+                    console.log(error.responseText);
+                }
+            });
+        });
+    }
+
+
+    // method to delete a comment from DOM
+    let deleteComment = function(deleteLink){
+        $(deleteLink).click(function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: 'get',
+                url: $(deleteLink).prop('href'),
+                success: function(data){
+                    $(`#post-${data.data.comment_id}`).remove();
+                },error: function(error){
+                    console.log(error.responseText);
+                }
+            });
+
+        });
+    }
+
+
 
 
 
