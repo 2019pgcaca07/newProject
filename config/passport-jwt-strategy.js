@@ -16,7 +16,7 @@ passport.use(new JWTStrategy(opts,function(jwtPayLoad,done){
         if(err){console.log('Error in finding user from JWT'); return;}
 
         if(user){
-            return done(null,user)
+            return done(null,user);
         }else{
             return done(null,false);
         }
