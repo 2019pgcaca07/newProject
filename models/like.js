@@ -12,7 +12,7 @@ const likeSchema = new mongoose.Schema({
         require: true,
         refPath: 'onModel'
     },
-    // this field is used for drfining the liked objects since this is the dynamic ref
+    // this field is used for defining the liked objects since this is the dynamic ref
     onModel: {
         type: String,
         required: true,
