@@ -1,7 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port =5000;
+const port =9000;
 
 //use express router
 const expressLayouts = require('express-ejs-layouts');
@@ -18,11 +18,6 @@ const MongoStore = require('connect-mongo')(session);
 const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
-
-
-
-
-
 app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
@@ -30,7 +25,6 @@ app.use(sassMiddleware({
     outputStyle: 'extended',
     prefix: '/css'
 }));
-
 app.use(express.urlencoded());
 
 app.use(cookieParser());
