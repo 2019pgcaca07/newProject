@@ -23,6 +23,7 @@
     "kue": "^0.11.6",
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.9",
+    "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "node-sass-middleware": "^0.11.0",
     "nodemailer": "^6.4.18",
@@ -31,6 +32,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "redis": "^3.0.2",
+    "rotating-file-stream": "^2.1.5",
     "socket.io": "^2.0.4"
   }
 }
