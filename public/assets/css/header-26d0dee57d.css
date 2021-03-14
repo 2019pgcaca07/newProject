@@ -1,0 +1,11 @@
+#header-div {
+  background-color: blue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+#sign-in-up-div a {
+  color: white; }
+
+#header-div h1 {
+  color: white; }

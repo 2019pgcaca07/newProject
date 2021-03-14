@@ -1,0 +1,12 @@
+#footer-div {
+  background-color: gray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; }
+
+#home-profile-links {
+  display: flex;
+  flex-direction: column; }
+  #home-profile-links a {
+    text-decoration: none;
+    color: white; }
